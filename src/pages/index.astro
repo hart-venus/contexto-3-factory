@@ -1,50 +1,20 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import BusFactory from '../factories/BusFactory';
-import TaxiFactory from '../factories/TaxiFactory';
-import Vehicle from '../components/Vehicle';
-import MinibusFactory from '../factories/MinibusFactory';
-
-const busFactory = new BusFactory();
-const taxiFactory = new TaxiFactory();
-const minibusFactory = new MinibusFactory();
-
-const vehicles: Vehicle[] = [
-	busFactory.createVehicle({ placa: 'B-1234', modelo: 'Mercedes Benz' }),
-	taxiFactory.createVehicle({ placa: 'T-5678', modelo: 'Toyota' }),
-	minibusFactory.createVehicle({ placa: 'M-9101', modelo: 'Hyundai' }),
-];
-
-const handleSubmit = (event: Event) => {
-	event.preventDefault();
-	console.log('Form submitted');
-	// this needs to happen all on the client side
-};
+import Layout from '../layouts/Layout.astro'
+import VehicleCreator from '../components/VehicleCreator.tsx'
 ---
 
 <Layout title="Factory Vehículos">
 	<main>
-		{vehicles.map((vehicle, index) => (
-			<div>
-				<h2>{vehicle.state.modelo}</h2>
-				<p>{vehicle.state.placa}</p>
-			</div>
-		))}
-
-		<form onsubmit="handleSubmit">
-			<input type="text" name="placa" placeholder="Placa" />
-			<input type="text" name="modelo" placeholder="Modelo" />
-			<button type="submit">Agregar</button>
-		</form>
-	</main>
-	
-
-
+		<VehicleCreator client:load/>
+    </main>
 </Layout>
 
-<style>
+<style is:global>
 	@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
 	main {
 		padding: 1rem;
-	}	
+	}
+	#vehicleCard {
+		background-color: red;
+	}
 </style>
