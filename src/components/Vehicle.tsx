@@ -19,7 +19,9 @@ abstract class Vehicle extends React.Component<VehicleProps, VehicleState> {
         };
     }
 
-    abstract render(): JSX.Element;
+    abstract getColor(): string;
+    abstract getIcon(): string;
+
 }
 
 export default Vehicle;

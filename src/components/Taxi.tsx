@@ -15,6 +15,14 @@ class Taxi extends Vehicle {
             </div>
         );
     }
+
+    getColor(): string {
+        return '#f2cc50'
+    }
+
+    getIcon(): string { 
+        return '🚕';
+    }
 }
 
 export default Taxi;

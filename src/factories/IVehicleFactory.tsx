@@ -1,7 +1,7 @@
 // src/factories/VehicleFactory.ts
 import React from 'react';
-import { type VehicleProps } from '../components/Vehicle';
+import Vehicle, { type VehicleProps } from '../components/Vehicle';
 
 export interface IVehicleFactory {
-    createVehicle(props: VehicleProps): React.ReactElement;
+    createVehicle(props: VehicleProps): Vehicle;
 }

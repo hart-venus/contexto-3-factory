@@ -5,7 +5,7 @@ import {type IVehicleFactory} from './IVehicleFactory';
 
 class BusFactory implements IVehicleFactory {
     createVehicle(props: VehicleProps) {
-        return <Bus {...props} />;
+        return new Bus(props);
     }
 }
 

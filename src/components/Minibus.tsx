@@ -15,6 +15,13 @@ class Minibus extends Vehicle {
             </div>
         );
     }
+
+    getColor(): string {
+        return '#106153'
+    }
+    getIcon(): string {
+        return '🚐';
+    }
 }
 
 export default Minibus;

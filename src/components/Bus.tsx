@@ -7,13 +7,12 @@ class Bus extends Vehicle {
         super(props);
     }
 
-    render(): JSX.Element {
-    // JSX específico para el componente Bus
-        return (
-            <div className="bus">
-            {/* Elementos del Bus aquí */}
-            </div>
-        );
+    getIcon(): string {
+        return '🚌';
+    }
+
+    getColor(): string {
+        return '#15374d';
     }
 }
 
