@@ -14,8 +14,8 @@ const vehicleFactories = {
 function VehicleCreator() {
     const [vehicles, setVehicles] = useState<Vehicle[]>([]);
     const [vehicleType, setVehicleType] = useState('bus');
-    const [placa, setPlaca] = useState('');
-    const [modelo, setModelo] = useState('');
+    const [placa, setPlaca] = useState('ABC123');
+    const [modelo, setModelo] = useState('Nissan');
 
     const handleVehicleTypeChange = (event : React.ChangeEvent<HTMLSelectElement>) => {
         setVehicleType(event.target.value);
@@ -32,25 +32,24 @@ function VehicleCreator() {
 
     return (
         <div>
-            <form onSubmit={handleFormSubmit}>
+            <form onSubmit={handleFormSubmit} id='form'>
                 <label>
-                Vehicle Type:
-                <select value={vehicleType} onChange={handleVehicleTypeChange}>
-                    <option value="bus">Bus</option>
-                    <option value="minibus">Minibus</option>
-                    <option value="taxi">Taxi</option>
-                </select>
-
+                    Tipo de Vehículo <span></span>
+                    <select value={vehicleType} onChange={handleVehicleTypeChange}>
+                        <option value="bus">Bus</option>
+                        <option value="minibus">Minibus</option>
+                        <option value="taxi">Taxi</option>
+                    </select>
                 </label>
                 <label>
-                    Placa:
-                    <input type="text" value={placa} onChange={(e) => setPlaca(e.target.value)} />
+                    Placa <span></span>
+                    <input type="text" value={placa} required onChange={(e) => setPlaca(e.target.value)} />
                 </label>
                 <label>
-                    Modelo:
-                    <input type="text" value={modelo} onChange={(e) => setModelo(e.target.value)} />
+                    Modelo <span></span>
+                    <input type="text" value={modelo} required onChange={(e) => setModelo(e.target.value)} />
                 </label>
-                <button type="submit">Create Vehicle</button>
+                <button type="submit">Crear</button>
             </form>
 
             <div id="vehicles">
